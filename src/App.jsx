@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
 import DietForm from './components/DietForm'
+import DietColumn from './components/DietColumn'
 
 const Container = styled.div``
 const Header = styled.div`
@@ -23,11 +24,11 @@ const App = () => {
       <Header>내식관리</Header>
       <DietForm/>
       <Main>
-        <Column>아침</Column>
+        <Column><DietColumn title="조식"/></Column>
         <Column>간식 1</Column>
-        <Column>점심</Column>
+        <Column>중식</Column>
         <Column>간식 2</Column>
-        <Column>저녁</Column>
+        <Column>석식</Column>
       </Main>
     </Container>
   )

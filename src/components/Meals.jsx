@@ -29,6 +29,7 @@ const Meals = ({name, selectMeal, selected}) => {
         type = "button"
         style = {selected ? buttonStyle[name] : buttonStyle.default}
         onClick = { () => selectMeal(name)}>
+        {name}
       </Meal>
     </Container>
   )

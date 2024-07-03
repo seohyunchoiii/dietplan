@@ -12,6 +12,12 @@ const Container = styled.div`
 const Form = styled.form`
   width: 40%;
 `
+const Bottom = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
 const MealsWrapper = styled.div`
   display: flex;
 `
@@ -39,6 +45,7 @@ const DietForm = ({setDiets}) => {
 
   const selectMeal = (meal) => {
     if(dietData.meals.some(item => item === meal)) {
+      // when meal is already available in the Array, remove the meal
       const filterMeals = dietData.meals.filter(item => item !== meal)
       setDietData(prev => {
         return {...prev, meals: filterMeals}
@@ -66,16 +73,18 @@ const DietForm = ({setDiets}) => {
   return (
     <Container>
       <Form onSubmit={handleSubmit}>
-        <MealsWrapper>
-          <Meals name="조식" selectMeal={selectMeal} selected={checkMeal("조식")}/>
-          <Meals name="간식1" selectMeal={selectMeal} selected={checkMeal("간식1")}/>
-          <Meals name="중삭" selectMeal={selectMeal} selected={checkMeal("중식")}/>
-          <Meals name="간식2" selectMeal={selectMeal} selected={checkMeal("간식2")}/>
-          <Meals name="석식" selectMeal={selectMeal} selected={checkMeal("석식")}/>
-        </MealsWrapper>
-        <Submit>
-          + Add Diet
-        </Submit>
+        <Bottom>
+          <MealsWrapper>
+            <Meals name="조식" selectMeal={selectMeal} selected={checkMeal("조식")}/>
+            <Meals name="간식1" selectMeal={selectMeal} selected={checkMeal("간식1")}/>
+            <Meals name="중식" selectMeal={selectMeal} selected={checkMeal("중식")}/>
+            <Meals name="간식2" selectMeal={selectMeal} selected={checkMeal("간식2")}/>
+            <Meals name="석식" selectMeal={selectMeal} selected={checkMeal("석식")}/>
+          </MealsWrapper>
+          <Submit>
+            + Add Diet
+          </Submit>
+        </Bottom>
       </Form>
     </Container>
   )

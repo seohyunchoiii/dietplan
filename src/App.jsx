@@ -24,7 +24,7 @@ const App = () => {
       <Header>내식관리</Header>
       <DietForm/>
       <Main>
-        <Column><DietColumn title="조식"/></Column>
+        <Column><DietColumn title="조식" status="조식"/></Column>
         <Column>간식 1</Column>
         <Column>중식</Column>
         <Column>간식 2</Column>

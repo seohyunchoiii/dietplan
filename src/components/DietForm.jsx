@@ -21,7 +21,7 @@ const Bottom = styled.div`
 const MealsWrapper = styled.div`
   display: flex;
 `
-const Submit = styled.button`
+const Search = styled.button`
   font-size: 16px;
   font-weight: 500;
   background-color: #6457f9;
@@ -81,9 +81,9 @@ const DietForm = ({setDiets}) => {
             <Meals name="간식2" selectMeal={selectMeal} selected={checkMeal("간식2")}/>
             <Meals name="석식" selectMeal={selectMeal} selected={checkMeal("석식")}/>
           </MealsWrapper>
-          <Submit>
-            + Add Diet
-          </Submit>
+          <Search>
+            메뉴 검색
+          </Search>
         </Bottom>
       </Form>
     </Container>

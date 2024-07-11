@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState,useRef} from 'react'
 import styled from 'styled-components'
 import Meals from './Meals'
 
@@ -21,7 +21,13 @@ const Bottom = styled.div`
 const MealsWrapper = styled.div`
   display: flex;
 `
-const Search = styled.button`
+const BtnWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+`
+
+const Open = styled.button`
   font-size: 16px;
   font-weight: 500;
   background-color: #6457f9;
@@ -32,6 +38,28 @@ const Search = styled.button`
   margin-left: 10px;
   border: none;
   cursor: pointer;
+`
+const Window = styled.div`
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.5);
+`
+const Content = styled.article`
+  background-color: #ffffff;
+  width: 80%;
+  height: 80%;
+  padding: 15px;
+`
+const Paragraph = styled.p``
+const Close = styled.button`
+  cursor: pointer;
+  margin-left: auto;
 `
 
 const DietForm = ({setDiets}) => {
@@ -69,6 +97,8 @@ const DietForm = ({setDiets}) => {
     }
     )
   }
+  const [modalOpen, setModalOpen] = useState(false);
+  const modalBackground = useRef();
 
   return (
     <Container>
@@ -81,10 +111,26 @@ const DietForm = ({setDiets}) => {
             <Meals name="간식2" selectMeal={selectMeal} selected={checkMeal("간식2")}/>
             <Meals name="석식" selectMeal={selectMeal} selected={checkMeal("석식")}/>
           </MealsWrapper>
-          <Search>
-            메뉴 검색
-          </Search>
-        </Bottom>
+          
+          <BtnWrapper>
+            <Open onClick={() => setModalOpen(true)}>
+              메뉴 검색
+            </Open>
+          </BtnWrapper>
+          {
+            modalOpen &&
+            <Window ref={modalBackground} onClick={ e=> {
+              if (e.target === modalBackground.current){
+                setModalOpen(false);
+              }
+            }}>
+              <Content>
+                <Paragraph>메뉴를 선택하세요.</Paragraph>
+                <Close onClick={() => setModalOpen(false)}>닫기</Close>
+              </Content>
+            </Window>
+          }
+            </Bottom>
       </Form>
     </Container>
   )

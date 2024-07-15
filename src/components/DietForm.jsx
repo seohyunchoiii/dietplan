@@ -1,31 +1,32 @@
-import React, {useState,useRef} from 'react'
-import styled from 'styled-components'
-import Meals from './Meals'
+import React, { useState, useRef } from 'react';
+import styled from 'styled-components';
+import Meals from './Meals';
 
 const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid #dcdcdc;
-  `
+`;
 
 const Form = styled.form`
   width: 40%;
-`
+`;
 const Bottom = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-`
+`;
 
 const MealsWrapper = styled.div`
   display: flex;
-`
+  gap: 30px;
+`;
 const BtnWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 5rem;
-`
+`;
 
 const Open = styled.button`
   font-size: 16px;
@@ -38,7 +39,7 @@ const Open = styled.button`
   margin-left: 10px;
   border: none;
   cursor: pointer;
-`
+`;
 const Window = styled.div`
   width: 100%;
   height: 100%;
@@ -49,54 +50,52 @@ const Window = styled.div`
   justify-content: center;
   align-items: center;
   background: rgba(0,0,0,0.5);
-`
+`;
 const Content = styled.article`
   background-color: #ffffff;
   width: 80%;
   height: 80%;
   padding: 15px;
-`
-const Paragraph = styled.p``
+`;
+const Paragraph = styled.p``;
 const Close = styled.button`
   cursor: pointer;
   margin-left: auto;
-`
+`;
 
-const DietForm = ({setDiets}) => {
+const DietForm = () => {
+  const [diets, setDiets] = useState(null);
+  
   const [dietData, setDietData] = useState({
     meals: []
-  })
+  });
 
   const checkMeal = (meal) => {
-    return dietData.meals.some(item => item === meal)
-  }
+    return dietData.meals.includes(meal); 
+  };
 
   const selectMeal = (meal) => {
-    if(dietData.meals.some(item => item === meal)) {
-      // when meal is already available in the Array, remove the meal
-      const filterMeals = dietData.meals.filter(item => item !== meal)
-      setDietData(prev => {
-        return {...prev, meals: filterMeals}
-      })
-    }
-    else {
-      setDietData(prev => {
-        return {...prev, meals: [meal]}
-      })
-    }
+    setDietData({meals: [meal]});
+    // if (dietData.meals.some(item => item === meal)) {
+    //   const filterMeals = dietData.meals.filter(item => item !== meal);
+    //   setDietData(prev => {
+    //     return { ...prev, meals: filterMeals };
+    //   });
+    // } else {
+    //   setDietData(prev => {
+    //     return { ...prev, meals: [...prev.meals, meal] }; 
+    //   });
+    // }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(dietData);
-    setDiets(prev => {
-      return [...prev, dietData];
-    });
+    setDiets(dietData);
     setDietData({
-      buttons: []
-    }
-    )
-  }
+      meals: [] 
+    });
+  };
+
   const [modalOpen, setModalOpen] = useState(false);
   const modalBackground = useRef();
 
@@ -105,13 +104,13 @@ const DietForm = ({setDiets}) => {
       <Form onSubmit={handleSubmit}>
         <Bottom>
           <MealsWrapper>
-            <Meals name="조식" selectMeal={selectMeal} selected={checkMeal("조식")}/>
-            <Meals name="간식1" selectMeal={selectMeal} selected={checkMeal("간식1")}/>
-            <Meals name="중식" selectMeal={selectMeal} selected={checkMeal("중식")}/>
-            <Meals name="간식2" selectMeal={selectMeal} selected={checkMeal("간식2")}/>
-            <Meals name="석식" selectMeal={selectMeal} selected={checkMeal("석식")}/>
+            <Meals name="조식" selectMeal={selectMeal} selected={checkMeal("조식")} />
+            <Meals name="간식1" selectMeal={selectMeal} selected={checkMeal("간식1")} />
+            <Meals name="중식" selectMeal={selectMeal} selected={checkMeal("중식")} />
+            <Meals name="간식2" selectMeal={selectMeal} selected={checkMeal("간식2")} />
+            <Meals name="석식" selectMeal={selectMeal} selected={checkMeal("석식")} />
           </MealsWrapper>
-          
+
           <BtnWrapper>
             <Open onClick={() => setModalOpen(true)}>
               메뉴 검색
@@ -119,8 +118,8 @@ const DietForm = ({setDiets}) => {
           </BtnWrapper>
           {
             modalOpen &&
-            <Window ref={modalBackground} onClick={ e=> {
-              if (e.target === modalBackground.current){
+            <Window ref={modalBackground} onClick={e => {
+              if (e.target === modalBackground.current) {
                 setModalOpen(false);
               }
             }}>
@@ -130,10 +129,10 @@ const DietForm = ({setDiets}) => {
               </Content>
             </Window>
           }
-            </Bottom>
+        </Bottom>
       </Form>
     </Container>
-  )
-}
+  );
+};
 
-export default DietForm
+export default DietForm;

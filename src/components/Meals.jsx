@@ -33,7 +33,6 @@ const RadioLabel = styled.label`
   cursor: pointer;
 `
 const Meals = ({name, selectMeal, selected}) => {
-console.log('name')
 
   console.log('name',name)
   return (
@@ -41,7 +40,6 @@ console.log('name')
       <MealRadioButton
         id={name}
         type="radio"
-        // name="meal"
         value={name}
         checked={selected}
         onChange={() => selectMeal(name)}

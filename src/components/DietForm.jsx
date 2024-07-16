@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import Meals from './Meals';
+import Menu from './Menu';
 
 const Container = styled.div`
   display: flex;
@@ -124,7 +125,7 @@ const DietForm = () => {
               }
             }}>
               <Content>
-                <Paragraph>메뉴를 선택하세요.</Paragraph>
+                <Menu/>
                 <Close onClick={() => setModalOpen(false)}>닫기</Close>
               </Content>
             </Window>

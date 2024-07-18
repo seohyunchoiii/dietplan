@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from "styled-components";
 import Category from './Category';
 
@@ -9,11 +9,24 @@ const CategoryWrapper = styled.div`
 `
 
 const Menu = () => {
+
+  const [x, setX] = useState({
+    category : []
+  })
+
+  const checked = (a) => {
+    return x.category.includes(a);
+  }
+
+  const checkedCategory = (a) => {
+    setX({category: [a]});
+  }
+
   return (
     <Container>
       <CategoryWrapper>
-        <Category name="밥류"/>
-        <Category name="과자 및 빵류"/>
+        <Category name="밥류" checked={checked("밥류")} checkedCategory={checkedCategory}/>
+        <Category name="과자 및 빵류" checked={checked("과자 및 빵류")} checkedCategory={checkedCategory}/>
       </CategoryWrapper>
     </Container>
 

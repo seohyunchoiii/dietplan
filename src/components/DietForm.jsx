@@ -64,6 +64,7 @@ const Close = styled.button`
   margin-left: auto;
 `;
 
+
 const DietForm = () => {
   const [diets, setDiets] = useState(null);
   
@@ -126,6 +127,7 @@ const DietForm = () => {
             }}>
               <Content>
                 <Menu/>
+                
                 <Close onClick={() => setModalOpen(false)}>닫기</Close>
               </Content>
             </Window>

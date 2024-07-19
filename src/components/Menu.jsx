@@ -26,7 +26,7 @@ const Menu = () => {
     <Container>
       <CategoryWrapper>
         <Category name="밥류" checked={checked("밥류")} checkedCategory={checkedCategory}/>
-        <Category name="과자 및 빵류" checked={checked("과자 및 빵류")} checkedCategory={checkedCategory}/>
+        <Category name="과자및빵류" checked={checked("과자및빵류")} checkedCategory={checkedCategory}/>
       </CategoryWrapper>
     </Container>
 

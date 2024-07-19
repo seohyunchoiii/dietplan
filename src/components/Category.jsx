@@ -1,7 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Container = styled.div``
+const ButtonStyle = {
+  밥류: {backgroundColor: "#fda821"},
+  과자및빵류: {backgroundColor: "#15d4c8"},
+//   중식: {backgroundColor: "#ffd12c"},
+//   간식2: {backgroundColor: "#4c75fc"},
+//   석식: {backgroundColor: "#a275c3"},
+  default: {backgroundColor: "#f9f9f9"},
+}
+
+const Container = styled.div`
+  display: flex;
+  background-color: ${(props) => props.selected ? ButtonStyle[props.name].backgroundColor : '#fff'};
+`
 const CategoryButton = styled.input`
   font-size: 14px;
   font-weight: 500;
@@ -9,7 +21,7 @@ const CategoryButton = styled.input`
   border-radius: 5px;
   padding: 2px 10px;
   margin-right: 10px;
-  /* display: none; */
+  display: none;
 `
 const RadioLabel = styled.label`
   width: 100px;
@@ -23,14 +35,14 @@ const RadioLabel = styled.label`
 
 const Category = ({name, checked, checkedCategory}) => {
   return (
-    <Container>
+    <Container selected={checked} name={name}>
       <CategoryButton
       id={name}
       type="radio"
       value={name}
       checked={checked}
       onChange={() => checkedCategory(name)}
-      // selected={selected}
+      selected={checked}
       />
       <RadioLabel for={name}>{name}</RadioLabel>
     </Container>

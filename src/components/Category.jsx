@@ -4,13 +4,14 @@ import styled from 'styled-components'
 const ButtonStyle = {
   밥류: {backgroundColor: "#fda821"},
   과자및빵류: {backgroundColor: "#15d4c8"},
-//   중식: {backgroundColor: "#ffd12c"},
-//   간식2: {backgroundColor: "#4c75fc"},
-//   석식: {backgroundColor: "#a275c3"},
+//   국류: {backgroundColor: "#ffd12c"},
+//   찌개류: {backgroundColor: "#4c75fc"},
+//   찜류: {backgroundColor: "#a275c3"},
   default: {backgroundColor: "#f9f9f9"},
 }
 
-const Container = styled.div`
+const Container = styled.div``
+const SelectCategory = styled.div`
   display: flex;
   background-color: ${(props) => props.selected ? ButtonStyle[props.name].backgroundColor : '#fff'};
 `
@@ -34,19 +35,23 @@ const RadioLabel = styled.label`
 `
 
 const Category = ({name, checked, checkedCategory}) => {
+  console.log('name',name)
   return (
-    <Container selected={checked} name={name}>
-      <CategoryButton
-      id={name}
-      type="radio"
-      value={name}
-      checked={checked}
-      onChange={() => checkedCategory(name)}
-      selected={checked}
-      />
-      <RadioLabel for={name}>{name}</RadioLabel>
+    <Container>
+      <SelectCategory selected={checked} name={name}>
+        <CategoryButton
+        id={name}
+        type="radio"
+        value={name}
+        checked={checked}
+        onChange={() => checkedCategory(name)}
+        selected={checked}
+        />
+        <RadioLabel for={name}>{name}</RadioLabel>
+      </SelectCategory>
+
+
     </Container>
-    
   )
 }
 

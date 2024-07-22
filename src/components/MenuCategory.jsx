@@ -8,7 +8,7 @@ const CategoryWrapper = styled.div`
   gap: 30px;
 `
 
-const Menu = () => {
+const MenuCategory = () => {
 
   const [x, setX] = useState({
     category : []
@@ -33,4 +33,4 @@ const Menu = () => {
   )
 }
 
-export default Menu
+export default MenuCategory

@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import Meals from './Meals';
-import Menu from './Menu';
+import MenuCategory from './MenuCategory';
+import MenuList from './MenuList';
 
 const Container = styled.div`
   display: flex;
@@ -59,9 +60,16 @@ const Content = styled.article`
   padding: 15px;
 `;
 const Paragraph = styled.p``;
+
+const Title = styled.h1`
+  display: flex;
+  margin-bottom : 20px
+`
+
 const Close = styled.button`
   cursor: pointer;
   margin-left: auto;
+  margin-top: 20px;
 `;
 
 
@@ -100,7 +108,7 @@ const DietForm = () => {
 
   const [modalOpen, setModalOpen] = useState(false);
   const modalBackground = useRef();
-
+  
   return (
     <Container>
       <Form onSubmit={handleSubmit}>
@@ -126,8 +134,11 @@ const DietForm = () => {
               }
             }}>
               <Content>
-                <Menu/>
+                <Title>메뉴선택</Title>
                 
+                <MenuCategory/>
+                <MenuList/>
+
                 <Close onClick={() => setModalOpen(false)}>닫기</Close>
               </Content>
             </Window>

@@ -35,7 +35,6 @@ const RadioLabel = styled.label`
 `
 
 const Category = ({name, checked, checkedCategory}) => {
-  console.log('name',name)
   return (
     <Container>
       <SelectCategory selected={checked} name={name}>

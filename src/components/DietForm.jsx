@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import Meals from './Meals';
 import MenuCategory from './MenuCategory';
-import MenuList from './MenuList';
 
 const Container = styled.div`
   display: flex;
@@ -134,10 +133,8 @@ const DietForm = () => {
               }
             }}>
               <Content>
-                <Title>메뉴선택</Title>
                 
                 <MenuCategory/>
-                <MenuList/>
 
                 <Close onClick={() => setModalOpen(false)}>닫기</Close>
               </Content>

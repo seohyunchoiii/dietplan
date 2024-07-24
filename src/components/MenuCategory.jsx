@@ -23,8 +23,7 @@ const TitleB = styled.h2`
 const MenuCategory = () => {
 
   const [x, setX] = useState({
-    category : [],
-    list : []
+    category : []
   })
 
   const checked = (a) => {
@@ -35,12 +34,15 @@ const MenuCategory = () => {
     setX({category: [a]});
   }
 
+  const [y, setY] = useState({
+    list : []
+  })
   const checkedB= (a) => {
-    return x.list.includes(a);
+    return y.list.includes(a);
   }
 
   const checkedList =  (a) => {
-    setX({list: [a]});
+    setY({list: [a]});
   }
 
   return (

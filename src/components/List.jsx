@@ -2,9 +2,7 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div``
-const SelectList = styled.div`
-  display: flex;
-`
+
 const ListButton = styled.input`
   font-size: 14px;
   font-weight: 500;
@@ -14,6 +12,12 @@ const ListButton = styled.input`
   margin-right: 10px;
   display: none;
 `
+
+const Box = styled.div`
+  background-color: #e0e0d9;
+  width: 400px;
+`
+
 const RadioLabel = styled.label`
   width: 100px;
   height: 40px;
@@ -22,12 +26,23 @@ const RadioLabel = styled.label`
   justify-content: center;
   border: 2px solid #dfdfdf;
   cursor: pointer;
+  &:hover {
+    border: 2px solid #b02727;
+    color: #b02727
+  }
+  /* display: none; */
 `
+
+const SelectList = styled.div`
+  display: flex;
+  color: ${(props) => props.selected ? '#b02727' : '#000000'};
+`
+
 const List = ({name, checkedList, checked}) => {
   console.log('checked',checked)
   return (
     <Container>
-      <SelectList>
+      <SelectList selected={checked}>
         <ListButton
         id={name}
         type="radio"
@@ -36,7 +51,9 @@ const List = ({name, checkedList, checked}) => {
         onChange={() => checkedList(name)}
         selected={checked}
         />
-        <RadioLabel for={name}>{name}</RadioLabel>
+        <Box>
+          <RadioLabel for={name}>{name}</RadioLabel>
+        </Box>
       </SelectList>
       
     </Container>

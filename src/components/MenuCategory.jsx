@@ -20,6 +20,12 @@ const TitleB = styled.h2`
   display: flex;
   margin-top: 100px;
 `
+const Box = styled.div`
+  background-color: #efc180;
+  width: 800px;
+  height: 200px;
+  padding: 10px 10px;
+`
 const MenuCategory = () => {
 
   const [x, setX] = useState({
@@ -55,10 +61,12 @@ const MenuCategory = () => {
       </CategoryWrapper>
 
       <TitleB>음식 목록</TitleB>
+      <Box>
       <ListWrapper>
         <List name="감자밥" category="밥류" checked={checkedB("감자밥")} checkedList={checkedList}/>
         <List name="검정콩밥" category="밥류" checked={checkedB("검정콩밥")} checkedList={checkedList}/>
       </ListWrapper>
+      </Box>
     </Container>
 
   )

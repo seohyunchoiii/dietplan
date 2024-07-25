@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div``
@@ -13,11 +13,6 @@ const ListButton = styled.input`
   display: none;
 `
 
-const Box = styled.div`
-  background-color: #e0e0d9;
-  width: 400px;
-`
-
 const RadioLabel = styled.label`
   width: 100px;
   height: 40px;
@@ -25,6 +20,7 @@ const RadioLabel = styled.label`
   align-items: center;
   justify-content: center;
   border: 2px solid #dfdfdf;
+  background-color: white;
   cursor: pointer;
   &:hover {
     border: 2px solid #b02727;
@@ -51,11 +47,9 @@ const List = ({name, checkedList, checked}) => {
         onChange={() => checkedList(name)}
         selected={checked}
         />
-        <Box>
-          <RadioLabel for={name}>{name}</RadioLabel>
-        </Box>
+        
+        <RadioLabel for={name}>{name}</RadioLabel>
       </SelectList>
-      
     </Container>
   )
 }

@@ -48,8 +48,6 @@ const Category = ({name, checked, checkedCategory}) => {
         />
         <RadioLabel for={name}>{name}</RadioLabel>
       </SelectCategory>
-
-
     </Container>
   )
 }

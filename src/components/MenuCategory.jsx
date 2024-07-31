@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Category from './Category';
 import List from './List';
 import Portion from './Portion';
+import PortionInput from './PortionInput';
 
 const Container = styled.div``
 const CategoryWrapper = styled.div`
@@ -68,7 +69,9 @@ const MenuCategory = () => {
   const checkedPortion =  (a) => {
     setZ({list: [a]});
   }
-  
+
+
+
   return (
     <Container>
 
@@ -89,12 +92,15 @@ const MenuCategory = () => {
       <TitleB>식사량 선택</TitleB>
       <Box>
         <PortionWrapper>
-          <Portion name="0.5인분" checked={checkedC("1/2인분")} checkedPortion={checkedPortion}/>
+          <Portion name="0.5인분" checked={checkedC("0.5인분")} checkedPortion={checkedPortion}/>
           <Portion name="1인분" checked={checkedC("1인분")} checkedPortion={checkedPortion}/>
-          <Portion name="1.5인분" checked={checkedC("1인분")} checkedPortion={checkedPortion}/>
-          <Portion name="2인분" checked={checkedC("1인분")} checkedPortion={checkedPortion}/>
-          <Portion name="2.5인분" checked={checkedC("1인분")} checkedPortion={checkedPortion}/>
-          <Portion name="3인분" checked={checkedC("1인분")} checkedPortion={checkedPortion}/>
+          <Portion name="1.5인분" checked={checkedC("1.5인분")} checkedPortion={checkedPortion}/>
+          <Portion name="2인분" checked={checkedC("2인분")} checkedPortion={checkedPortion}/>
+          <Portion name="2.5인분" checked={checkedC("2.5인분")} checkedPortion={checkedPortion}/>
+          <Portion name="3인분" checked={checkedC("3인분")} checkedPortion={checkedPortion}/>
+
+          <Portion name="직접입력(g)" checked={checkedC("직접입력(g)")} checkedPortion={checkedPortion}/>
+          <PortionInput name="" checked={checkedC("직접입력(g)")} checkedPortion={checkedPortion} disabled/>
         </PortionWrapper>
       </Box>
     </Container>

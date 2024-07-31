@@ -19,6 +19,7 @@ const RadioLabel = styled.label`
   cursor: pointer;
 `
 
+
 const Portion = ({name, checked, checkedPortion}) => {
   return (
     <Container>
@@ -31,7 +32,7 @@ const Portion = ({name, checked, checkedPortion}) => {
         selected={checked}
         />
         <RadioLabel for={name}>{name}</RadioLabel>
-      
+        
     </Container>
   )
 }
